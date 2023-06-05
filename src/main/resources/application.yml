@@ -1,0 +1,9 @@
+quarkus:
+  vertx:
+    max-event-loop-execute-time: 5000
+  http:
+    port: 8088
+    test-port: 8081
+    root-path: rule-engine
+  swagger-ui:
+    always-include: true
