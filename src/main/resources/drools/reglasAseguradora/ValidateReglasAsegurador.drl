@@ -1,0 +1,14 @@
+package drools.reglasAseguradora;
+
+import com.keralty.rule.engine.dto.reglasAseguradora.ReglasAseguradoraDTO;
+import com.keralty.rule.engine.dto.ExecutionResultDTO;
+import java.util.Arrays;
+
+
+rule "reglasAseguradora"
+when
+    ReglasAseguradoraDTO( aseguradoraID == 275, result : result)
+then
+    result.setName("EPS Sanitas");
+    result.setType("Medicamento");
+end
