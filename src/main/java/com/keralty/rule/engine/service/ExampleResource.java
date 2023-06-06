@@ -1,4 +1,4 @@
-package com.keralty.rule.engine;
+package com.keralty.rule.engine.service;
 
 
 import javax.ws.rs.GET;

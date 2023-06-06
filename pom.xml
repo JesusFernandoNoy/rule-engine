@@ -4,12 +4,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.keralty.rule.engine</groupId>
   <artifactId>rule-engine</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Rule Engine</name>
   <properties>
+    <quarkus-plugin.version>2.13.0.Final</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.16.6.Final</quarkus.platform.version>
+    <quarkus.platform.version>2.13.0.Final</quarkus.platform.version>
+
     <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
     <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
     <kogito.bom.version>1.32.0.Final</kogito.bom.version>
@@ -48,11 +50,11 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jackson</artifactId>
+      <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -98,14 +100,11 @@
       <plugin>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus.platform.version}</version>
-        <extensions>true</extensions>
+        <version>${quarkus-plugin.version}</version>
         <executions>
           <execution>
             <goals>
               <goal>build</goal>
-              <goal>generate-code</goal>
-              <goal>generate-code-tests</goal>
             </goals>
           </execution>
         </executions>

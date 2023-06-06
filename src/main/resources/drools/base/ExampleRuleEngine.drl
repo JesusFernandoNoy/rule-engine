@@ -1,0 +1,10 @@
+package drools.base;
+
+import com.keralty.rule.engine.dto.PatientDTO
+
+rule "Is adult"
+when
+    $patient: PatientDTO(age >= 18)
+then
+System.out.println("is adult");
+end

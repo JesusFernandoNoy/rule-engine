@@ -1,0 +1,20 @@
+package drools.program;
+
+import com.keralty.rule.engine.dto.program.CalculateVariablesProgramDTO;
+import com.keralty.rule.engine.dto.ExecutionResultDTO;
+import java.util.Arrays;
+
+
+rule "CalculateVariables"
+when
+    CalculateVariablesProgramDTO( request.healthCareProgramID == "1", result : result)
+then
+    result.setExecutionResult(Arrays.asList(ExecutionResultDTO.builder().param("birthDate").path("Patient.age").build()));
+end
+
+rule "CalculateVariablesComplementary"
+when
+    CalculateVariablesProgramDTO( request.healthCareProgramID != "1", result : result)
+then
+    result.setExecutionResult(Arrays.asList(ExecutionResultDTO.builder().param("birthDate").path("Patient.age").build()));
+end
