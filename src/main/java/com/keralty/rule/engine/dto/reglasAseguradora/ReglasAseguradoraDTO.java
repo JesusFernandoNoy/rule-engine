@@ -8,6 +8,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ReglasAseguradoraDTO {
-    private String aseguradoraID;
+    private String company;
+    private String insuranceID;
+    private String insuranceName;
     private ReglasAseguradoraResultDTO result;
 }

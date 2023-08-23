@@ -1,5 +1,6 @@
 package com.keralty.rule.engine.dto.reglasAseguradora;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,6 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ReglasAseguradoraResultDTO {
+    private String status;//SUCCES or FAIL
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String name;
-    private String type;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String insuranceCode;
 }

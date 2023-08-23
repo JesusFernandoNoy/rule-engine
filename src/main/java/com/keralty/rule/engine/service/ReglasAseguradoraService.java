@@ -19,13 +19,13 @@ public class ReglasAseguradoraService {
 
     /**
      * Calculate associated UPI given medicalCenterName and patientLocation
-     *
-     * @param aseguradoraID unique aseguradora code
+     *@param company unique company code
+     * @param aseguradoraID unique insurance code
      * @return the reglas Aseguradora associated with the code {@link ReglasAseguradoraDTO}
      */
     @GET
     @Produces(APPLICATION_JSON)
-    public RestResponse<ReglasAseguradoraResultDTO> getReglasAseguradora(@QueryParam("aseguradoraID") String aseguradoraID) throws FacadeException {
-        return RestResponse.ResponseBuilder.ok(reglasAseguradoraFacade.getReglasAseguradora(aseguradoraID)).build();
+    public RestResponse<ReglasAseguradoraResultDTO> getReglasAseguradora(@QueryParam("company") String company,@QueryParam("insuranceID") String aseguradoraID) throws FacadeException {
+        return RestResponse.ResponseBuilder.ok(reglasAseguradoraFacade.getCompanyInsuranceRule(company,aseguradoraID)).build();
     }
 }

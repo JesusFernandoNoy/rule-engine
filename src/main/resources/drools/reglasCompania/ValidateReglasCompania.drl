@@ -1,0 +1,14 @@
+package drools.reglasCompania;
+
+import com.keralty.rule.engine.dto.reglasCompania.ReglasCompaniaDTO;
+import com.keralty.rule.engine.dto.ExecutionResultDTO;
+import java.util.Arrays;
+
+
+rule "companyRule"
+when
+    ReglasCompaniaDTO(company == "EPS Sanitas", result : result)
+then
+    result.setStatus("Succes");
+    result.setName("EPS Sanitas");
+end

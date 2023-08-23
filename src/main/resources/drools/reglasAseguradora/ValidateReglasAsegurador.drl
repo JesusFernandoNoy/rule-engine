@@ -5,10 +5,29 @@ import com.keralty.rule.engine.dto.ExecutionResultDTO;
 import java.util.Arrays;
 
 
-rule "reglasAseguradora"
+rule "companyInsuranceRule-9991"
 when
-    ReglasAseguradoraDTO( aseguradoraID == 275, result : result)
+    ReglasAseguradoraDTO(company == "EPS Sanitas", insuranceID == "9991", result : result)
 then
-    result.setName("EPS Sanitas");
-    result.setType("Medicamento");
+    result.setStatus("Succes");
+    result.setName("EPS Sanitas - 9991");
+    result.setInsuranceCode("9991");
+end
+
+rule "companyInsuranceRule-PREMIUM"
+when
+    ReglasAseguradoraDTO(company == "EPS Sanitas", insuranceID == "PREMIUM", result : result)
+then
+    result.setStatus("Succes");
+    result.setName("EPS Sanitas - PREMIUM");
+    result.setInsuranceCode("PREMIUM");
+end
+
+rule "companyInsuranceRule-900372442-2"
+when
+    ReglasAseguradoraDTO(company == "EPS Sanitas", insuranceID == "900372442-2", result : result)
+then
+    result.setStatus("Succes");
+    result.setName("EPS Sanitas - 900372442-2");
+    result.setInsuranceCode("900372442-2");
 end

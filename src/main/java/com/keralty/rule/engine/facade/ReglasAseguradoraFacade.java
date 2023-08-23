@@ -24,17 +24,20 @@ public class ReglasAseguradoraFacade {
      * @param aseguradoraID unique asegurador ID
      * @return Representation of ReglasAsegurador {@link ReglasAseguradoraDTO}
      */
-    public ReglasAseguradoraResultDTO getReglasAseguradora(String aseguradoraID) throws FacadeException {
-        ReglasAseguradoraResultDTO result = executeRules(aseguradoraID).getResult();
-        if (result.getType() == null) {
-            throw new FacadeException("There is no aseguradora with code: " + aseguradoraID, null);
+    public ReglasAseguradoraResultDTO getCompanyInsuranceRule(String company, String aseguradoraID) throws FacadeException {
+        ReglasAseguradoraResultDTO result = executeRules(company,aseguradoraID).getResult();
+        if (result.getInsuranceCode() == null) {
+            result = new ReglasAseguradoraResultDTO();
+            result.setStatus("FAIL");
+            //throw new FacadeException("There is no aseguradora with code: " + aseguradoraID, null);
         }
         return result;
     }
 
-    public ReglasAseguradoraDTO executeRules(String aseguradoraID) {
+    public ReglasAseguradoraDTO executeRules(String company,String aseguradoraID) {
         ReglasAseguradoraDTO reglasAseguradoraDTO = new ReglasAseguradoraDTO();
-        reglasAseguradoraDTO.setAseguradoraID(aseguradoraID);
+        reglasAseguradoraDTO.setCompany(company);
+        reglasAseguradoraDTO.setInsuranceID(aseguradoraID);
         reglasAseguradoraDTO.setResult(new ReglasAseguradoraResultDTO());
         kieSession.insert(reglasAseguradoraDTO);
         kieSession.fireAllRules();
