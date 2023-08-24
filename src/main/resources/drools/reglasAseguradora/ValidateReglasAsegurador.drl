@@ -9,25 +9,28 @@ rule "companyInsuranceRule-9991"
 when
     ReglasAseguradoraDTO(company == "EPS Sanitas", insuranceID == "9991", result : result)
 then
-    result.setStatus("Succes");
-    result.setName("EPS Sanitas - 9991");
+    result.setStatus("SUCCES");
+    result.setName("EPS Sanitas");
     result.setInsuranceCode("9991");
+    result.setInsuranceType("Entidad Promotora de Salud Contributivo");
 end
 
 rule "companyInsuranceRule-PREMIUM"
 when
     ReglasAseguradoraDTO(company == "EPS Sanitas", insuranceID == "PREMIUM", result : result)
 then
-    result.setStatus("Succes");
-    result.setName("EPS Sanitas - PREMIUM");
+    result.setStatus("SUCCES");
+    result.setName("E.P.S Sanitas Plan Premium");
     result.setInsuranceCode("PREMIUM");
+    result.setInsuranceType("Entidad Promotora de Salud Contributivo");
 end
 
 rule "companyInsuranceRule-900372442-2"
 when
     ReglasAseguradoraDTO(company == "EPS Sanitas", insuranceID == "900372442-2", result : result)
 then
-    result.setStatus("Succes");
-    result.setName("EPS Sanitas - 900372442-2");
+    result.setStatus("SUCCES");
+    result.setName("Salud Total EPS Regimen Subsidiado SAS");
     result.setInsuranceCode("900372442-2");
+    result.setInsuranceType("Entidad Promotora de Salud Subsidiado");
 end

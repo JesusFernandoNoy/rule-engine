@@ -14,4 +14,6 @@ public class ReglasAseguradoraResultDTO {
     private String name;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String insuranceCode;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String insuranceType;
 }
