@@ -44,11 +44,6 @@ public class KieFileSystemProducer {
 
     private List<File> getFiles() {
         if(baseDrlLocation != null) {
-            //System.out.println("baseDrlLocation = "+baseDrlLocation);
-            /*if(baseDrlLocation.contains("C:")){
-                baseDrlLocation = baseDrlLocation.substring(20);
-                System.out.println("nueva baseDrlLocation = "+baseDrlLocation);
-            }*/
             try (Stream<Path> paths = Files.walk(Path.of(getRulesLocation()))) {
                 return paths.filter(Files::isRegularFile).map(java.nio.file.Path::toFile).toList();
             } catch (IOException e) {
