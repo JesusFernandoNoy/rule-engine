@@ -2,8 +2,13 @@ quarkus:
   vertx:
     max-event-loop-execute-time: 5000
   http:
-    port: 8088
-    test-port: 8081
+    port: 5090
+    test-port: 5091
     root-path: rule-engine
+    cors:
+      ~: true
+      origins: http://localhost:5086
+      headers: accept, authorization, content-type, x-requested-with
+      methods: GET, OPTIONS, POST
   swagger-ui:
     always-include: true
